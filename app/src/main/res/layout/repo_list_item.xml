@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="repo"
+            type="com.vlad.kozyr.genesis_task.ui.main_screen.RepoView" />
+
+        <variable
+            name="callback"
+            type="com.vlad.kozyr.genesis_task.ui.main_screen.OnRepoClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> callback.onRepoClick(repo)}"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/repo_icon"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:contentDescription="@string/repo_icon"
+            android:src="@drawable/ic_repo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/grey" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:drawablePadding="10dp"
+            android:singleLine="true"
+            android:text="@{repo.name}"
+            android:textColor="@{repo.visited ? @color/purple_500 : @color/blue}"
+            app:layout_constraintBottom_toBottomOf="@+id/repo_icon"
+            app:layout_constraintEnd_toStartOf="@+id/star"
+            app:layout_constraintStart_toEndOf="@+id/repo_icon"
+            app:layout_constraintTop_toTopOf="@+id/repo_icon"
+            tools:text="VladKozyr/search-android-app" />
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="@{repo.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="Updated 4 days ago" />
+
+        <TextView
+            android:id="@+id/star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:text="@{Integer.toString(repo.stars)}"
+            app:drawableStartCompat="@drawable/ic_star"
+            app:drawableTint="@color/yellow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="23" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
