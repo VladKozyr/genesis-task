@@ -1,12 +1,11 @@
 package com.vlad.kozyr.genesis_task.ui.main_screen.search
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.rxjava3.cachedIn
-import com.vlad.kozyr.genesis_task.core.DisposableViewModel
+import com.vlad.kozyr.genesis_task.core.main.DisposableViewModel
 import com.vlad.kozyr.genesis_task.domain.usecase.SearchUseCase
 import com.vlad.kozyr.genesis_task.ui.main_screen.RepoView
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -37,10 +36,7 @@ class SearchViewModel @Inject constructor(
         searchProcessor.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .flatMap { searchUseCase.execute(query = it).cachedIn(viewModelScope) }
-            .subscribe(
-                { value -> _results.postValue(value) },
-                { error -> Log.i("TAG", "searchProcessor: $error") }
-            )
+            .subscribe { value -> _results.postValue(value) }
             .autoClear()
     }
 

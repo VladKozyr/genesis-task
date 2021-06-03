@@ -21,7 +21,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), OnRepoClickListener {
+class MainActivity : AppCompatActivity(), OnRepoClickListener, OnLogoutListener {
 
     private val historyViewModel: HistoryViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
@@ -55,13 +55,17 @@ class MainActivity : AppCompatActivity(), OnRepoClickListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.option -> authRepository.signOut()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { completed ->
-                    if (completed) startActivity(Intent(this, LoginActivity::class.java))
-                }
+            R.id.option -> onLogout()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onLogout() {
+        authRepository.signOut()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { completed ->
+                if (completed) startActivity(Intent(this, LoginActivity::class.java))
+            }
     }
 }

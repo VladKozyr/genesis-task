@@ -1,7 +1,7 @@
 package com.vlad.kozyr.genesis_task.core.di
 
 import android.content.Context
-import com.vlad.kozyr.genesis_task.core.Mapper
+import com.vlad.kozyr.genesis_task.core.main.Mapper
 import com.vlad.kozyr.genesis_task.core.SessionManager
 import com.vlad.kozyr.genesis_task.data.local.db.RepoDao
 import com.vlad.kozyr.genesis_task.data.local.entity.RepoEntity

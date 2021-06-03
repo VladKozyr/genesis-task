@@ -2,6 +2,7 @@ package com.vlad.kozyr.genesis_task.domain
 
 import androidx.paging.PagingState
 import androidx.paging.rxjava3.RxPagingSource
+import com.vlad.kozyr.genesis_task.core.main.errorMap
 import com.vlad.kozyr.genesis_task.data.remote.GithubSearchApi
 import com.vlad.kozyr.genesis_task.data.remote.model.Order
 import com.vlad.kozyr.genesis_task.data.remote.model.RepoResponse
@@ -35,6 +36,7 @@ class SearchPagingSource(
                 makeRequest(page = page * 2, pageSize = pageSize / 2),
                 { first, second -> first + second }
             )
+                .errorMap()
                 .subscribe({
                     emitter.onSuccess(
                         LoadResult.Page(

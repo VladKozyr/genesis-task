@@ -1,6 +1,6 @@
 package com.vlad.kozyr.genesis_task.domain.mapper
 
-import com.vlad.kozyr.genesis_task.core.Mapper
+import com.vlad.kozyr.genesis_task.core.main.Mapper
 import com.vlad.kozyr.genesis_task.data.remote.model.RepoResponse
 import com.vlad.kozyr.genesis_task.ui.main_screen.RepoView
 

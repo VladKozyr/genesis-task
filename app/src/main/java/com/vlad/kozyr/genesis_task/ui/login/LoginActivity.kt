@@ -9,7 +9,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.vlad.kozyr.genesis_task.R
-import com.vlad.kozyr.genesis_task.core.afterTextChanged
+import com.vlad.kozyr.genesis_task.core.main.afterTextChanged
 import com.vlad.kozyr.genesis_task.databinding.ActivityLoginBinding
 import com.vlad.kozyr.genesis_task.ui.main_screen.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,7 +28,6 @@ class LoginActivity : AppCompatActivity() {
 
         val username = binding.username
         val login = binding.login
-        val loading = binding.loading
 
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it ?: return@Observer
@@ -47,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         login.setOnClickListener {
-            loading.visibility = View.VISIBLE
             val intent = loginViewModel.getAuthIntent(username.text.toString())
             startActivity(intent)
         }

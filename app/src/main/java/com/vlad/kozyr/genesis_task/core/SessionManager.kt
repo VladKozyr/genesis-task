@@ -19,15 +19,27 @@ class SessionManager @Inject constructor(
             .apply()
     }
 
-    fun deleteUser() {
+    fun saveToken(token: String) {
         sharedPreferences.edit()
-            .remove(PREF_NAME)
+            .putString(KEY_TOKEN, token)
+            .apply()
+    }
+
+    fun fetchToken(): String? = sharedPreferences
+        .getString(KEY_TOKEN, null)
+
+
+    fun clearSession() {
+        sharedPreferences.edit()
+            .remove(KEY_USER)
+            .remove(KEY_TOKEN)
             .apply()
     }
 
     companion object {
         const val PREF_NAME = "session_pref"
         const val KEY_USER = "user"
+        const val KEY_TOKEN = "token"
         const val PRIVATE_MODE = 0
     }
 }

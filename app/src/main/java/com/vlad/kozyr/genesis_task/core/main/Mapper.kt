@@ -1,4 +1,4 @@
-package com.vlad.kozyr.genesis_task.core
+package com.vlad.kozyr.genesis_task.core.main
 
 interface Mapper<MODEL, ENTITY> {
     fun toModel(entity: ENTITY): MODEL

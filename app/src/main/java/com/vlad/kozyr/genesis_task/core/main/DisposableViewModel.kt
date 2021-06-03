@@ -1,4 +1,4 @@
-package com.vlad.kozyr.genesis_task.core
+package com.vlad.kozyr.genesis_task.core.main
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable

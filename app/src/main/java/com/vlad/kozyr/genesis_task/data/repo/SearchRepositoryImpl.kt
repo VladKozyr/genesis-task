@@ -1,5 +1,6 @@
 package com.vlad.kozyr.genesis_task.data.repo
 
+import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData

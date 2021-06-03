@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val sessionManager: SessionManager,
-    private val authApi: GithubAuthApi
+    private val authApi: GithubAuthApi,
 ) : AuthRepository {
 
     var user: LoggedInUser? = null
@@ -53,7 +53,7 @@ class AuthRepositoryImpl @Inject constructor(
 
     override fun signOut(): Single<Boolean> {
         user = null
-        sessionManager.deleteUser()
+        sessionManager.clearSession()
         return Single.just(true)
     }
 

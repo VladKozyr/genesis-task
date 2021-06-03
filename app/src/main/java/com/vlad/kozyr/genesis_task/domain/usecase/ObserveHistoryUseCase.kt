@@ -1,6 +1,6 @@
 package com.vlad.kozyr.genesis_task.domain.usecase
 
-import com.vlad.kozyr.genesis_task.core.Mapper
+import com.vlad.kozyr.genesis_task.core.main.Mapper
 import com.vlad.kozyr.genesis_task.data.local.entity.RepoEntity
 import com.vlad.kozyr.genesis_task.domain.repo.HistoryRepository
 import com.vlad.kozyr.genesis_task.ui.main_screen.RepoView

@@ -87,4 +87,9 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
 
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+
+    def jwt_version = "0.10.5"
+    api "io.jsonwebtoken:jjwt-api:$jwt_version"
+    runtimeOnly "io.jsonwebtoken:jjwt-impl:$jwt_version"
+    runtimeOnly("io.jsonwebtoken:jjwt-orgjson:$jwt_version") { }
 }

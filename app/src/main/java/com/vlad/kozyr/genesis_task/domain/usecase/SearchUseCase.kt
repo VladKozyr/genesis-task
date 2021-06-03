@@ -2,7 +2,7 @@ package com.vlad.kozyr.genesis_task.domain.usecase
 
 import androidx.paging.PagingData
 import androidx.paging.map
-import com.vlad.kozyr.genesis_task.core.Mapper
+import com.vlad.kozyr.genesis_task.core.main.Mapper
 import com.vlad.kozyr.genesis_task.data.remote.model.RepoResponse
 import com.vlad.kozyr.genesis_task.domain.repo.HistoryRepository
 import com.vlad.kozyr.genesis_task.domain.repo.SearchRepository
