@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="app_name">Arquitectura</string>
+  <string name="app_schema"></string>
+  <string name="title_activity_login"></string>
+  <string name="prompt_email"></string>
+  <string name="prompt_password"></string>
+  <string name="action_sign_in"></string>
+  <string name="action_sign_in_short"></string>
+  <string name="welcome"></string>
+  <string name="invalid_username"></string>
+  <string name="invalid_password"></string>
+  <string name="login_failed"></string>
+  <string name="repo_icon"></string>
+  <string name="login_hint"></string>
+  <string name="history"></string>
+  <string name="no_history_yet"></string>
+  <string name="empty_history_hint"></string>
+  <string name="search"></string>
+  <string name="go"></string>
+  <string name="empty_search"></string>
+  <string name="empty_search_hint"></string>
+  <string name="wait"></string>
+  <string name="retry"></string>
+  <string name="something_goes_wrong"></string>
+  <string name="sign_out">Cerrar sesión</string>
+</resources>
